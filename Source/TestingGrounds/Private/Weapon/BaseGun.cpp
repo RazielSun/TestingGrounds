@@ -26,6 +26,8 @@ ABaseGun::ABaseGun()
 
 void ABaseGun::OnFire()
 {
+	UE_LOG(LogTemp, Warning, TEXT("BaseGun OnFire"));
+
 	// try and fire a projectile
 	if (ProjectileClass != NULL)
 	{
@@ -51,14 +53,14 @@ void ABaseGun::OnFire()
 	}
 
 	// try and play a firing animation if specified
-	if (FireAnimation != NULL)
+	if (FireAnimation1P != NULL && AnimInstance1P != NULL)
 	{
-		// Get the animation object for the arms mesh
-		//UAnimInstance* AnimInstance = Mesh1P->GetAnimInstance();
-		if (AnimInstance != NULL)
-		{
-			AnimInstance->Montage_Play(FireAnimation, 1.f);
-		}
+		AnimInstance1P->Montage_Play(FireAnimation1P, 1.f);
+	}
+
+	if (FireAnimation3P != NULL && AnimInstance3P != NULL)
+	{
+		AnimInstance3P->Montage_Play(FireAnimation3P, 1.f);
 	}
 }
 

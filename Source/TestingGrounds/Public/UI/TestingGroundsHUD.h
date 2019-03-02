@@ -17,6 +17,10 @@ public:
 	/** Primary draw call for the HUD */
 	virtual void DrawHUD() override;
 
+	/** If true, show crosshair. */
+	UPROPERTY(BlueprintReadWrite, Category = HUD)
+	uint8 bShowCrosshair : 1;
+
 private:
 	/** Crosshair asset pointer */
 	class UTexture2D* CrosshairTex;
